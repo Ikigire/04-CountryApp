@@ -1,1 +1,57 @@
-<p>country-page works!</p>
+<ng-template #loading>
+    <div class="spinner-grow w-100 text-center" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</ng-template>
+
+<div *ngIf="country; else loading">
+    <div class="row">
+        <div class="col-12">
+            <h1>country: <small>{{country.name.common}}</small> {{ country.flag }}</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4">
+            <h3>Bandera:</h3>
+            <img [src]="country.flags.png" class="img-thumbnail">
+        </div>
+
+        <div class="col">
+            <h3>Información:</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Población:</strong> {{country.population | number}}
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Código Numérico:</strong> {{country.area}}
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Código alpha:</strong> {{country.cca2}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div>
+        <h3>Traducciones:</h3>
+        <div class="row">
+            <div class="col">
+                <span class="badge bg-primary mr-1">{{country.translations["deu"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["est"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["fra"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["jpn"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["kor"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["per"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["pol"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["nld"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["hrv"].common}}</span>
+                <span class="badge bg-primary mr-1">{{country.translations["rus"].common}}</span>
+            </div>
+        </div>
+    </div>
+</div>
