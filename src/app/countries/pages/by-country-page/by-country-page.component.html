@@ -3,12 +3,13 @@
 
 <div class="row">
     <section class="col">
-        <shared-search-box placeholder="Buscar por Nombre" (onValue)="onValue( $event )"></shared-search-box>
+        <shared-search-box placeholder="Buscar por Nombre" (onValue)="onValue( $event )" (onDebounce)="onValue( $event )" [initValue]="initTerm"></shared-search-box>
     </section>
 </div>
 <hr>
 <div class="row">
-    <section class="col">
+    <section class="col">¨
+        <shared-loading-spinner *ngIf="isLoading" [message]="'Países'"></shared-loading-spinner>
         <countries-country-table [countries]="countries"></countries-country-table>
         <!-- <ul>
             <li *ngFor="let country of countries"> {{country.capital}} </li>
